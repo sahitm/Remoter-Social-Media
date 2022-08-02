@@ -1,0 +1,22 @@
+.register{
+
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    width: 50vw;
+    height: 90vh;
+}
+
+.register--input{
+    margin: 2rem !important;
+}
+
+@media (max-width:768px) {
+
+    .register{
+        width: 90vw;
+        height: 90vh;
+    }
+    
+}

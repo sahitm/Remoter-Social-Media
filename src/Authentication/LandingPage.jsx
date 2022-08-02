@@ -2,6 +2,8 @@ import React from 'react'
 import './LandingPage.css'
 import Footer from './Footer'
 import { Button } from '@mui/material';
+import Popup from 'reactjs-popup';
+import Register from './UserDetails/Register';
 
 function LandingPage() {
   return (
@@ -13,7 +15,9 @@ function LandingPage() {
             Stay Connected With Your Co-workers
             </h3>
             <Button className="signupBtn sbtn">Sign Up With Google</Button>
-            <Button className="signupBtn sbtn">Sign Up With E-mail</Button>
+            <Popup trigger={<Button className="signupBtn sbtn">Sign Up With E-mail</Button>} modal>
+                <Register />
+            </Popup>
             <hr />
             <Button className='signInBtn sbtn' >Sign In</Button>
         </div>

@@ -1,0 +1,44 @@
+.LandingPage{
+    background-color:black;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.brand{
+    background-image: url('../assets/bg-WFH.svg');
+    height: 80vh;
+
+}
+
+.auth {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 4rem 0;
+}
+
+
+.signupBtn{
+    background-color: rgb(7, 2, 46) !important;
+    color:  rgb(96, 230, 235) !important;  
+}
+
+.signInBtn{
+    background-color: rgb(96, 230, 235) !important;
+    color:  rgb(7, 2, 46)  !important;
+    
+}
+
+.sbtn{
+    margin: 1rem 0 !important;
+    border-radius: 2rem !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+
+Footer{
+    background-color: black;
+}

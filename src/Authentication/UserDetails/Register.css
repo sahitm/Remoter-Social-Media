@@ -1,6 +1,5 @@
 .register{
-
-    background-color: black;
+    background-color: #b3e1f7;
     display: flex;
     flex-direction: column;
     padding: 3rem 2rem;
@@ -8,15 +7,20 @@
     height: 90vh;
 }
 
+
+/* .register > *{
+    margin: 1rem 0 !important;
+}
+
 .register--input{
-    margin: 2rem !important;
+    border-radius: 5px;
 }
 
 @media (max-width:768px) {
-
+ac
     .register{
         width: 90vw;
         height: 90vh;
     }
     
-}
+} */

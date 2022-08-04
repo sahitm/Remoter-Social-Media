@@ -3,24 +3,23 @@
     display: flex;
     flex-direction: column;
     padding: 3rem 2rem;
-    width: 50vw;
-    height: 90vh;
 }
 
 
-/* .register > *{
-    margin: 1rem 0 !important;
-}
-
-.register--input{
-    border-radius: 5px;
-}
-
-@media (max-width:768px) {
-ac
+@media (min-width:1020px) {
     .register{
-        width: 90vw;
-        height: 90vh;
+        width: 50vw;
+        height: 95vh;
     }
     
-} */
+    
+}
+
+
+@media (max-width:640px) {
+    .register{
+        width: 70vw ;
+        height: 95vh; 
+    } 
+    
+}

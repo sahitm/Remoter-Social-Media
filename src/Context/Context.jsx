@@ -4,10 +4,10 @@ const Context = React.createContext()
 
 function ContextProvider(props) {
 
-    const [state , SetState] = React.useState([])
+    const [userData , SetUserData] = React.useState([])
 
     return (
-        <Context.Provider value={{state , SetState}}>
+        <Context.Provider value={{userData , SetUserData}}>
             {props.children}
         </Context.Provider>
     )

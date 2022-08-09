@@ -4,7 +4,7 @@ const Context = React.createContext()
 
 function ContextProvider(props) {
 
-    const [userData , SetUserData] = React.useState([])
+    const [userData , SetUserData] = React.useState('')
 
     return (
         <Context.Provider value={{userData , SetUserData}}>

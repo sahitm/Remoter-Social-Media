@@ -1,19 +1,22 @@
 import { Button, TextField } from '@mui/material'
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import './Register.css'
 import {FormContainer, TextFieldElement, PasswordElement,PasswordRepeatElement,CheckboxElement} from 'react-hook-form-mui'
 import { Alert } from '@mui/material';
 import {useNavigate} from "react-router-dom"
+import Users from './helpers/Users';
+import {Context} from '../../Context/Context' 
 
 
 
 function Register() {
 
   const regNavigate = useNavigate();
+  const {userData , SetUserData} = useContext(Context)
 
   const [strongPassword,SetStrongPassword] = useState(false)
   const [isRegistered,SetisRegistered] = useState(false)
-
+  
   const form = {
     agree: false
   }
@@ -23,11 +26,38 @@ function Register() {
     const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
     if(regex.test(object.password)){
       SetStrongPassword(false)
-      localStorage.setItem("name", object.name);
-      localStorage.setItem("email", object.email);
-      localStorage.setItem("password",object.password);
-      console.log("Saved in Local Storage");
-      SetisRegistered(true)
+
+      if(userData == ''){
+
+        localStorage.setItem('usersList',JSON.stringify([...Users]))
+        const existingUsers = JSON.parse(localStorage.getItem('usersList'))
+        console.log(userData)
+
+        let newUsers = {
+          name: object.name,
+          email: object.email,
+          password: object.password
+        }
+
+        localStorage.setItem('usersList',JSON.stringify([...existingUsers,newUsers]))
+
+        SetUserData(JSON.parse(localStorage.getItem("usersList")))
+        SetisRegistered(true)
+
+      }else{
+
+        let newUsers = {
+            name: object.name,
+            email: object.email,
+            password: object.password
+        }
+        
+        localStorage.setItem("usersList", JSON.stringify([...userData, newUsers]))
+        SetUserData(JSON.parse(localStorage.getItem("usersList")))
+        SetisRegistered(true)
+      }
+
+      
     }else{
       SetStrongPassword(true)
       SetisRegistered(false)

@@ -4,10 +4,12 @@ import { Button } from '@mui/material'
 import {useNavigate} from "react-router-dom"
 import './Login.css'
 import { Alert } from '@mui/material';
+import { Context } from '../../Context/Context'
 
 function Login() {
 
-    const Loginnavigate = useNavigate(); 
+  const Loginnavigate = useNavigate();
+  const {userData , SetUserData} = useContext(Context);
 
   const[isWorngPW,SetIsWorngPW] = useState(false)
    
@@ -16,16 +18,18 @@ function Login() {
     } 
     
   function handleLogin(data){
-    let rEmail = localStorage.getItem("email")
-    let rPassword = localStorage.getItem("password")
-    if(data.email === rEmail && data.password === rPassword){
-      console.log('signed in successfull')
-      Loginnavigate('/home')
-      SetIsWorngPW(false)
-    }else{
-      console.log('not successfull')
-      SetIsWorngPW(true)
+    console.log('clicked')
+    for(const user in userData){
+      if(data.email === userData[user]['email'] && data.password === userData[user]['password']){
+        console.log('signed in successfull')
+        Loginnavigate('/home')
+        SetIsWorngPW(false)
+      }else{
+        console.log('not successfull')
+        SetIsWorngPW(true)
+      }
     }
+
   }  
 
   return (

@@ -1,0 +1,59 @@
+.TweetTab{
+    margin-top: 2rem;
+    border-bottom: 1px solid gray;
+}
+
+.pictureInput > *{
+    margin: 1rem;
+}
+
+.tweetInput{
+    width: 300px;
+    height: 50px;
+    padding: 5px;
+    
+}
+
+.tweetInput:focus{
+    outline: 1px solid #e8f5fe; 
+    background-color: #b2d8ee;
+    border-radius: 1rem;
+}
+
+.tweetBtn{
+    background-color: aqua !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.optionsButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width:968px) {
+   
+    .TweetTab{
+        height: 30vh;
+        display: flex;
+        margin-top: 2rem;
+        padding: 1rem;
+        margin-right: 1rem;
+        border-bottom: 1px solid gray;
+    }
+    
+    .pictureInput{
+        margin-left: 1rem;
+        width: 40rem;
+    }
+    
+    
+    .tweetInput{
+        width: 30rem;
+        height: 3rem;
+        padding: 1rem;
+    }
+    
+
+
+}

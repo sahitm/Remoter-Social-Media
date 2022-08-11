@@ -4,7 +4,7 @@ import './Register.css'
 import {FormContainer, TextFieldElement, PasswordElement,PasswordRepeatElement,CheckboxElement} from 'react-hook-form-mui'
 import { Alert } from '@mui/material';
 import {useNavigate} from "react-router-dom"
-import Users from './helpers/Users';
+import Users from '../../helpers/Users';
 import {Context} from '../../Context/Context' 
 
 

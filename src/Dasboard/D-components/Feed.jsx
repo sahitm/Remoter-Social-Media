@@ -7,11 +7,11 @@ function Feed() {
 
   const {postData , SetPostData} = React.useContext(Context)
 
-  const postElements = postData.map(post => <h1>{post.contents}</h1>)
+  
   return (
     <div className='feed'>
         <TweetTab />
-        {postElements} 
+        { postData ? postData.map(post => <h1>{post.contents}</h1>) : <h1></h1>} 
     </div>
   )
 }

@@ -18,7 +18,7 @@ function TweetTab() {
   const [twtData,SetTwtData] = useState('')
 
   function handlePost(){
-    if(postData.length == 0){
+    if(postData == null){
 
       localStorage.setItem('postdata',JSON.stringify([...InitialPosts]))
       const existingPosts = JSON.parse(localStorage.getItem('postdata'))

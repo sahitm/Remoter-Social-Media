@@ -1,0 +1,21 @@
+.post{
+    display: flex;
+    border-bottom: 1px solid rgb(185, 184, 184);
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+}
+
+.post--avatar{
+    margin: 0 1rem;
+    margin-top: 1rem;
+}
+
+.post--body{
+    width: 30rem;
+}
+
+.post--footer{
+    display: flex;
+    margin-top: 0.5rem;
+    justify-content: space-around;
+}

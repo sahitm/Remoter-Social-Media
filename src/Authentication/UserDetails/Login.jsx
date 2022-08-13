@@ -19,6 +19,8 @@ function Login() {
     
   function handleLogin(data){
     console.log('clicked')
+    SetUserData(JSON.parse(localStorage.getItem("usersList")))
+    console.log(userData)
     for(const user in userData){
       if(data.name === userData[user]['name'] && data.password === userData[user]['password']){
         console.log('signed in successfull')

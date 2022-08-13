@@ -23,7 +23,7 @@ function Sidebar() {
 
   function handleLogout(){
     Logoutnavigate('/')
-    SetUserData(JSON.parse(localStorage.getItem("usersList")))
+    
   }
 
 

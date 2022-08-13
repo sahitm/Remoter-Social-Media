@@ -1,5 +1,5 @@
 import { Avatar } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRef } from 'react'
 import './Post.css'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -15,8 +15,12 @@ import {Context} from '../../Context/Context'
 function Post({text}) {
 
   const {postData , SetPostData, loggedIn, SetLoggedIn} = React.useContext(Context)  
-  SetLoggedIn(JSON.parse(localStorage.getItem('loggedIn')))
-  localStorage.setItem('postdata',JSON.stringify(postData)) 
+
+  useEffect(() => {
+    SetLoggedIn(JSON.parse(localStorage.getItem('loggedIn')))
+  }, []);
+
+  localStorage.setItem('postdata',JSON.stringify(postData))
 
   function delPost(){
     SetPostData(prevPostData => prevPostData.filter(post => post.postID !== text.postID))
@@ -54,9 +58,9 @@ function Post({text}) {
                     {text.postAuthor} <span>@{text.postAuthor}</span>
                 </h3>
             </div>
-            <div className='post--desc' ref={textRef} onChange={(event) => SetTextInput(event.target.value)}>
-                {postInput}
-            </div>
+            <textarea className='post--desc' ref={textRef} onChange={(event) => SetTextInput(event.target.value)} defaultValue={postInput} />
+                {/* {postInput}
+            </textarea> */}
             { isUpdate && <Button onClick={update}>Update</Button>}
             <div className='post--footer'>
                 <ChatBubbleOutlineIcon />

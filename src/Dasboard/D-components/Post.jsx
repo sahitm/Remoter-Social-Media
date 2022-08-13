@@ -15,15 +15,11 @@ import {Context} from '../../Context/Context'
 function Post({text}) {
 
   const {postData , SetPostData, loggedIn, SetLoggedIn} = React.useContext(Context)  
-  console.log(text.postAuthor) 
   SetLoggedIn(JSON.parse(localStorage.getItem('loggedIn')))
-  console.log(loggedIn)
   localStorage.setItem('postdata',JSON.stringify(postData)) 
 
   function delPost(){
     SetPostData(prevPostData => prevPostData.filter(post => post.postID !== text.postID))
-    console.log('clicked')
-    console.log(postData)
     localStorage.setItem('postdata',JSON.stringify([...postData]))
   } 
   
@@ -39,16 +35,12 @@ function Post({text}) {
   }
 
   function update(){
-    console.log(textInput)
     SetPostData(postData => postData.map(post => post.postID == text.postID ? {
       ...post,
       contents : `${textInput}`
     } : post     
     ))
-    console.log(postData)
     SetIsUpdate(!isUpdate)
-    
-    console.log(text.postAuthor)
   }
 
   return (
@@ -62,9 +54,9 @@ function Post({text}) {
                     {text.postAuthor} <span>@{text.postAuthor}</span>
                 </h3>
             </div>
-            <textarea className='post--desc' name="" id="" cols="40" rows="4" ref={textRef} onChange={(event) => SetTextInput(event.target.value)}>
+            <div className='post--desc' ref={textRef} onChange={(event) => SetTextInput(event.target.value)}>
                 {postInput}
-            </textarea>
+            </div>
             { isUpdate && <Button onClick={update}>Update</Button>}
             <div className='post--footer'>
                 <ChatBubbleOutlineIcon />

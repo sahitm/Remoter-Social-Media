@@ -31,7 +31,6 @@ function Register() {
 
         localStorage.setItem('usersList',JSON.stringify([...Users]))
         const existingUsers = JSON.parse(localStorage.getItem('usersList'))
-        console.log(userData)
 
         let newUsers = {
           name: object.name,

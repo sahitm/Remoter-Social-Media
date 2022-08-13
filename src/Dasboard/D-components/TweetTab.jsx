@@ -15,7 +15,6 @@ import InitialPosts from '../../helpers/InitialPosts';
 function TweetTab() {
 
   const {postData , SetPostData, loggedIn, SetLoggedIn} = useContext(Context)
-  console.log(postData,'tweetab1')
   const [twtData,SetTwtData] = useState('')
 
   function handlePost(){
@@ -34,8 +33,6 @@ function TweetTab() {
 
       localStorage.setItem('postdata',JSON.stringify([...existingPosts,newPost]))
       SetPostData(JSON.parse(localStorage.getItem('postdata')))
-      console.log(postData) 
-      console.log(postData,'tweetab2')
 
     }else{
 
@@ -49,7 +46,6 @@ function TweetTab() {
 
       localStorage.setItem('postdata',JSON.stringify([...postData,newPost]))
       SetPostData(JSON.parse(localStorage.getItem('postdata'))) 
-      console.log(postData,'tweetab3')
 
     }
   }

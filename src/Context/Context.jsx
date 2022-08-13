@@ -7,7 +7,6 @@ function ContextProvider(props) {
 
     const [userData , SetUserData] = React.useState('')
     const [postData , SetPostData] = React.useState(JSON.parse(localStorage.getItem('postdata')))
-    console.log(postData)
     const [initialData, SetInitialData] = React.useState([...InitialPosts]) 
     const [loggedIn, SetLoggedIn] = React.useState('')
 

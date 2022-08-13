@@ -15,6 +15,8 @@ import {Context} from '../../Context/Context'
 function Post({text}) {
 
   const {postData , SetPostData} = React.useContext(Context)  
+  console.log(text.postAuthor) 
+  localStorage.setItem('postdata',JSON.stringify(postData)) 
 
   function delPost(){
     SetPostData(prevPostData => prevPostData.filter(post => post.postID !== text.postID))
@@ -36,10 +38,15 @@ function Post({text}) {
 
   function update(){
     console.log(textInput)
-    SetPostData(prevPostData => prevPostData.map(post => post.postID == text.postID ? post.contents = `${textInput}` : post     
+    SetPostData(postData => postData.map(post => post.postID == text.postID ? {
+      ...post,
+      contents : `${textInput}`
+    } : post     
     ))
-    localStorage.setItem('postdata',JSON.stringify([...postData]))
+    console.log(postData)
     SetIsUpdate(!isUpdate)
+    
+    console.log(text.postAuthor)
   }
 
   return (
@@ -50,8 +57,7 @@ function Post({text}) {
         <div className='post--body'>
             <div className='post--header'>
                 <h3>
-                    {/* {loginvalues.Logusername} <span>@{loginvalues.Logusername}</span> */}
-                    <span>@</span>
+                    {text.postAuthor} <span>@{text.postAuthor}</span>
                 </h3>
             </div>
             <textarea className='post--desc' name="" id="" cols="40" rows="4" ref={textRef} onChange={(event) => SetTextInput(event.target.value)}>

@@ -9,7 +9,7 @@ import { Context } from '../../Context/Context'
 function Login() {
 
   const Loginnavigate = useNavigate();
-  const {userData , SetUserData} = useContext(Context);
+  const {userData , SetUserData, loggedIn, SetLoggedIn} = useContext(Context);
 
   const[isWorngPW,SetIsWorngPW] = useState(false)
    
@@ -24,6 +24,8 @@ function Login() {
         console.log('signed in successfull')
         Loginnavigate('/home')
         SetIsWorngPW(false)
+        localStorage.setItem('loggedIn',JSON.stringify(data.name))
+        SetLoggedIn(JSON.parse(localStorage.getItem('loggedIn')))
       }else{
         console.log('not successfull')
         SetIsWorngPW(true)

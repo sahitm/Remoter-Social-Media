@@ -1,6 +1,8 @@
 import React from 'react'
 import SBoption from './SBoption';
 import './Sidebar.css'
+import {useNavigate} from "react-router-dom"
+import { useContext } from 'react';
 
 import icon from '../../assets/icon-remote.png'
 import HomeIcon from '@mui/icons-material/Home';
@@ -12,7 +14,19 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Button } from '@mui/material';
 
+import { Context } from '../../Context/Context';
+
 function Sidebar() {
+
+  const Logoutnavigate = useNavigate();
+  const {userData , SetUserData} = useContext(Context)
+
+  function handleLogout(){
+    Logoutnavigate('/')
+    SetUserData(JSON.parse(localStorage.getItem("usersList")))
+  }
+
+
   return (
     <div className='Sidebar'>
  
@@ -26,7 +40,7 @@ function Sidebar() {
         <SBoption Icon={PermIdentityIcon} text="Profile" />
         <SBoption Icon={MoreHorizIcon} text="More" />
 
-        <Button className='Logout'>Logout</Button>
+        <Button className='Logout' onClick={handleLogout}>Logout</Button>
     </div>
   )
 }

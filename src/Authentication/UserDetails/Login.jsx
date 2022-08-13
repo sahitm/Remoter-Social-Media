@@ -20,7 +20,7 @@ function Login() {
   function handleLogin(data){
     console.log('clicked')
     for(const user in userData){
-      if(data.email === userData[user]['email'] && data.password === userData[user]['password']){
+      if(data.name === userData[user]['name'] && data.password === userData[user]['password']){
         console.log('signed in successfull')
         Loginnavigate('/home')
         SetIsWorngPW(false)
@@ -43,9 +43,9 @@ function Login() {
                         }}>
             <TextFieldElement
                 required
-                type={'email'}
-                label={'Email'}
-                name={'email'}
+                type={'name'}
+                label={'Username'}
+                name={'name'}
                 margin={'normal'}
                 fullWidth={true}        
             /><br />

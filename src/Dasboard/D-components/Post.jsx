@@ -14,8 +14,10 @@ import {Context} from '../../Context/Context'
 
 function Post({text}) {
 
-  const {postData , SetPostData} = React.useContext(Context)  
+  const {postData , SetPostData, loggedIn, SetLoggedIn} = React.useContext(Context)  
   console.log(text.postAuthor) 
+  SetLoggedIn(JSON.parse(localStorage.getItem('loggedIn')))
+  console.log(loggedIn)
   localStorage.setItem('postdata',JSON.stringify(postData)) 
 
   function delPost(){
@@ -69,12 +71,12 @@ function Post({text}) {
                 <RepeatIcon />
                 <FavoriteBorderIcon />
                 <ShareIcon />
-                <div style={{cursor:"pointer"}} onClick={updatePost}>
+                {loggedIn == text.postAuthor && <div style={{cursor:"pointer"}} onClick={updatePost}>
                     <EditIcon color='primary'/>
-                </div>
-                <div style={{cursor:"pointer"}} onClick={delPost}>
+                </div>}
+                {loggedIn == text.postAuthor && <div style={{cursor:"pointer"}} onClick={delPost}>
                     <DeleteForeverOutlinedIcon color='secondary'/>
-                </div>
+                </div>}
 
             </div>
         </div>

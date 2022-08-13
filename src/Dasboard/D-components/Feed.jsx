@@ -18,9 +18,9 @@ function Feed() {
 
       { 
       postData ? 
-                postData.map(post => <Post text={post.contents} />) 
+                postData.map(post => <Post text={post} />) 
               : 
-                initialData.map(post => <Post text={post.contents} />)} 
+                initialData.map(post => <Post text={post} />)} 
     
     </div>
   )

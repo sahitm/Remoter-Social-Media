@@ -18,4 +18,18 @@
     z-index: 100;
 }
 
+@media (max-width:1020px) {
+    .feed{
+        height: 130vh;
+    }
+    
+    
+}
 
+@media (max-width:768px) {
+    .feed{
+        height: 100vh;
+    }
+    
+    
+}

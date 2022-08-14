@@ -7,6 +7,7 @@ import Post from './Post'
 function Feed() {
 
   const {postData , SetPostData, initialData, SetInitialData} = React.useContext(Context)
+  const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
   
   return (
@@ -18,7 +19,7 @@ function Feed() {
 
       { 
       postData ? 
-                postData.map(post => <Post key={post.postID} text={post} />) 
+                shuffle(postData).map(post => <Post key={post.postID} text={post} />) 
               : 
                 initialData.map(post => <Post key={post.postID}  text={post} />)} 
     

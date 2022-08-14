@@ -15,6 +15,7 @@ function Register() {
   const {userData , SetUserData} = useContext(Context)
 
   const [strongPassword,SetStrongPassword] = useState(false)
+  const [strongUsername,SetStrongUsername] = useState(false)
   const [isRegistered,SetisRegistered] = useState(false)
   
   const form = {
@@ -24,38 +25,53 @@ function Register() {
   function handleSubmit(object){
 
     const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+
+    const regexUsername = /^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$/
+
+    console.log(object)
+    console.log(object.password)
+    console.log(object.name)
+    console.log(regex.test(object.password))
+    console.log(regexUsername.test(object.name))
+
     if(regex.test(object.password)){
       SetStrongPassword(false)
+      if(regexUsername.test(object.name)){
+        SetStrongUsername(false)
+      
+      
 
-      if(userData == ''){
+        if(userData == ''){
 
-        localStorage.setItem('usersList',JSON.stringify([...Users]))
-        const existingUsers = JSON.parse(localStorage.getItem('usersList'))
+          localStorage.setItem('usersList',JSON.stringify([...Users]))
+          const existingUsers = JSON.parse(localStorage.getItem('usersList'))
 
-        let newUsers = {
-          name: object.name,
-          email: object.email,
-          password: object.password
-        }
-
-        localStorage.setItem('usersList',JSON.stringify([...existingUsers,newUsers]))
-
-        SetUserData(JSON.parse(localStorage.getItem("usersList")))
-        SetisRegistered(true)
-
-      }else{
-
-        let newUsers = {
+          let newUsers = {
             name: object.name,
             email: object.email,
             password: object.password
-        }
-        
-        localStorage.setItem("usersList", JSON.stringify([...userData, newUsers]))
-        SetUserData(JSON.parse(localStorage.getItem("usersList")))
-        SetisRegistered(true)
-      }
+          }
 
+          localStorage.setItem('usersList',JSON.stringify([...existingUsers,newUsers]))
+
+          SetUserData(JSON.parse(localStorage.getItem("usersList")))
+          SetisRegistered(true)
+
+        }else{
+
+          let newUsers = {
+              name: object.name,
+              email: object.email,
+              password: object.password
+          }
+          
+          localStorage.setItem("usersList", JSON.stringify([...userData, newUsers]))
+          SetUserData(JSON.parse(localStorage.getItem("usersList")))
+          SetisRegistered(true)
+        }
+      }else{
+        SetStrongUsername(true)
+      }
       
     }else{
       SetStrongPassword(true)
@@ -77,11 +93,12 @@ function Register() {
         autoComplete={'new-password'}
         margin={'normal'}
         fullWidth={true}
-        label={'Name'}
+        label={'UserName'}
         name={'name'}
         color='primary'
         
       /><br />
+      {strongUsername && <Alert severity="error">Enter username that contains lowercase letters a-z, uppercase letters A-Z, and numbers 0-9</Alert>}
       <TextFieldElement
         required
         type={'email'}

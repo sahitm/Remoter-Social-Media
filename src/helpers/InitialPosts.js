@@ -1,14 +1,14 @@
 const InitialPosts = [{
     postID: 1,
     contents: "i'm known by my failures",
-    postAuthor: 'vikram',
+    postAuthor: 'Agent1vikram',
     createdOn: Date.now(), 
     updatedOn: Date.now() 
 },
 {
     postID: 2,
     contents: 'Big fan of your work sir',
-    postAuthor: 'amar',
+    postAuthor: 'Agent2amar',
     createdOn: Date.now(), 
     updatedOn: Date.now() 
 }

@@ -1,0 +1,36 @@
+
+.trending{
+    padding: 1rem;
+    font-weight: 900;
+    height: 100vh;
+    
+}
+
+.trending > input{
+    margin: 2rem;
+    margin-left: 0.5rem;
+    background-color: rgb(188, 248, 248);
+    padding: 1rem;
+    border-radius: 20px;
+
+}
+
+.trending > h1{
+    padding: 1rem;
+    margin-left: 0.5rem;
+}
+
+.trending > h3{
+    padding: 0.4rem;
+    margin: 1rem;
+}
+
+
+
+
+@media (max-width:768px) {
+    .trending{
+        display: none;
+    }
+
+}

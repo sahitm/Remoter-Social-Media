@@ -59,9 +59,7 @@ function Post({text}) {
                 </h3>
             </div>
             <textarea className='post--desc' ref={textRef} onChange={(event) => SetTextInput(event.target.value)} defaultValue={postInput} />
-                {/* {postInput}
-            </textarea> */}
-            { isUpdate && <Button onClick={update}>Update</Button>}
+            { isUpdate && <Button onClick={update} variant='contained'>Update</Button>}
             <div className='post--footer'>
                 <ChatBubbleOutlineIcon />
                 <RepeatIcon />

@@ -33,6 +33,7 @@ function TweetTab() {
 
       localStorage.setItem('postdata',JSON.stringify([...existingPosts,newPost]))
       SetPostData(JSON.parse(localStorage.getItem('postdata')))
+      document.getElementById("myForm").value=''
 
     }else{
 
@@ -47,6 +48,8 @@ function TweetTab() {
       localStorage.setItem('postdata',JSON.stringify([...postData,newPost]))
       SetPostData(JSON.parse(localStorage.getItem('postdata'))) 
 
+      document.getElementById("myForm").value=''
+
     }
   }
 
@@ -54,7 +57,7 @@ function TweetTab() {
     <div className='TweetTab'>
         <Avatar />
         <div className='pictureInput'>
-            <input className='tweetInput' placeholder="What's Happening" onChange={(event) => SetTwtData(event.target.value)}/>
+            <input className='tweetInput' id='myForm' placeholder="What's Happening" onChange={(event) => SetTwtData(event.target.value)}/>
             <hr></hr>
             <div className='optionsButton'>
                 <div className='tweetTab--icons'>

@@ -17,7 +17,8 @@ function Register() {
   const [strongPassword,SetStrongPassword] = useState(false)
   const [strongUsername,SetStrongUsername] = useState(false)
   const [isRegistered,SetisRegistered] = useState(false)
-  
+  const [isUnique,SetisUnique] = useState(false)
+
   const form = {
     agree: false
   }
@@ -60,14 +61,20 @@ function Register() {
         }else{
 
           let newUsers = {
-              name: object.name,
-              email: object.email,
-              password: object.password
+            name: object.name,
+            email: object.email,
+            password: object.password
           }
-          
-          localStorage.setItem("usersList", JSON.stringify([...userData, newUsers]))
-          SetUserData(JSON.parse(localStorage.getItem("usersList")))
-          SetisRegistered(true)
+
+          if(userData.every(post=> post.name !== newUsers['name'])){
+            
+            SetisUnique(false)
+            localStorage.setItem("usersList", JSON.stringify([...userData, newUsers]))
+            SetUserData(JSON.parse(localStorage.getItem("usersList")))
+            SetisRegistered(true)
+          }else{
+            SetisUnique(true)
+          }
         }
       }else{
         SetStrongUsername(true)
@@ -99,6 +106,7 @@ function Register() {
         
       /><br />
       {strongUsername && <Alert severity="error">Enter username that contains lowercase letters a-z, uppercase letters A-Z, and numbers 0-9</Alert>}
+      {isUnique && <Alert severity="error">You already have an account </Alert>}
       <TextFieldElement
         required
         type={'email'}

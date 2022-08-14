@@ -26,4 +26,22 @@
     background-color: rgb(190, 240, 240);
     border-radius: 20px;
     font-weight: bolder;
+    min-width: 40vw;
+}
+
+@media (max-width:968px) {
+   
+    .post{
+        display: flex;
+        border-bottom: 1px solid rgb(185, 184, 184);
+        padding: 0.5rem 0rem;
+        margin-right: 1rem;
+    }
+    
+    .post--avatar{
+        margin-top: 1rem;
+        margin-left: 0rem;
+    }
+
+
 }

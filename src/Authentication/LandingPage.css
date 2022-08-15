@@ -12,9 +12,12 @@
 
     .auth{
         height: 60vh !important;
+        width: 65vw;
+        margin-left: 15vw !important;
     }
     .footer{
-        height: 40vh !important;
+        margin-top: 10vh ;
+        height: 27vh !important;
     }
 }
 

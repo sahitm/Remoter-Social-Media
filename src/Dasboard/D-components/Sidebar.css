@@ -39,6 +39,7 @@
     .Sidebar{
         max-width: 90px;
         height: 100%;
+        margin: 0rem ;
     }
 
     .Sidebar > *{

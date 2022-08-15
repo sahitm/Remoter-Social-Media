@@ -1,6 +1,7 @@
 .TweetTab{
     margin-top: 2rem;
     border-bottom: 1px solid gray;
+    margin-left: 1rem;
 }
 
 .pictureInput > *{
@@ -53,7 +54,6 @@
         height: 3rem;
         padding: 1rem;
     }
-    
 
 
 }

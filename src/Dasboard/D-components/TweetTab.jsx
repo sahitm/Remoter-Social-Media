@@ -55,7 +55,7 @@ function TweetTab() {
 
   return (
     <div className='TweetTab'>
-        <Avatar />
+        <Avatar id='avatar'/>
         <div className='pictureInput'>
             <input className='tweetInput' id='myForm' placeholder="What's Happening" onChange={(event) => SetTwtData(event.target.value)}/>
             <hr></hr>
